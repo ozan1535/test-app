@@ -6,7 +6,7 @@ import { updateTabIndex } from "@/helpers/helpers";
 import ProfileComments from "../ProfileComments/ProfileComments";
 import ProfileEmojiReactions from "../ProfileEmojiReactions/ProfileEmojiReactions";
 import ProfileFavourites from "../ProfileFavourites/ProfileFavourites";
-import { IProfileItems, IProfileItemsIndex } from "./ProfileItems.types";
+import { IProfileItems } from "./ProfileItems.types";
 import { ITabIndexStore } from "@/app/types";
 import { profileItemsTabs } from "./ProfileItems.helpers";
 
