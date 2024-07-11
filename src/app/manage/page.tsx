@@ -15,6 +15,7 @@ import Tab from "@/components/Tab/Tab";
 import { IFormItems, ITabIndexStore } from "../types";
 import { useAppContext } from "../context";
 import RequestFailedMessage from "@/components/RequestFailedMessage/RequestFailedMessage";
+import Input from "@/components/Input/Input";
 
 export default function Manage() {
   const { setModalProps } = useAppContext();
@@ -22,11 +23,29 @@ export default function Manage() {
     formItemsInitialProperties
   );
 
+  const [passwordProperties, setPasswordProperties] = useState({ password: "", isPasswordTrue: false })
+
   const [tabIndexStore, setTabIndexStore] = useState<ITabIndexStore>(
     tabIndexStoreInitialProperties
   );
 
+  if (!passwordProperties.isPasswordTrue) {
+    return (<>
+      <Input name="Password" type="text" value={passwordProperties.password} handleFunction={(e) => setPasswordProperties(prev => ({ ...prev, password: e.target.value }))} />
+      <Button type="button" isButtonSecondary={false} name="Enter" handleFunction={() => {
+        if (passwordProperties.password === process.env.NEXT_PUBLIC_MANAGE_PAGE_PASSWORD) {
+          setPasswordProperties(prev => ({
+            ...prev,
+            isPasswordTrue: true
+          }))
+        }
+      }} />
+    </>)
+  }
+
+
   return (
+
     <form className="px-2">
       <Tab
         items={generalTabs}
