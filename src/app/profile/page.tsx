@@ -4,6 +4,10 @@ import { getData, profileItemsWithId } from "@/helpers/helpers";
 
 export default async function Page() {
   const session = await serverAuth();
+  if (!session) {
+    // Handle no session case, you can either return a message or redirect
+    return <p>Please log in to view your profile.</p>;
+  }
   const comments = (await getData("comments")) as any;
   const favourites = (await getData(
     "favourites",
