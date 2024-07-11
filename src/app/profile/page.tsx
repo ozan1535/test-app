@@ -1,6 +1,6 @@
-import ProfileItems from "@/components/ProfileItems/ProfileItems";
 import { serverAuth } from "../../../auth";
 import { getData, profileItemsWithId } from "@/helpers/helpers";
+import ProfileItems from "@/components/ProfileItems/ProfileItems";
 
 export default async function Page() {
   const session = await serverAuth();
