@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const tests = await getData("tests");
+  console.log(tests)
   return (
     <>
       <Widget media="/test-emoji.svg" title="Tests" />
