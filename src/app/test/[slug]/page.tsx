@@ -31,7 +31,7 @@ export default async function Page({ params }: IParams) {
 
   return (
     <div className="w-full grid justify-center px-4 justify-items-center gap-1">
-      <div className="w-full grid justify-center">
+      <div className="w-full md:w-2/4 grid justify-center">
         <h4 className="text-2xl font-bold">{singleTest.title}</h4>
         <br />
         <p className="text-gray-500">{singleTest.description}</p>
