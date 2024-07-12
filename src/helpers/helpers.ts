@@ -387,7 +387,6 @@ export const getData = async (
   shouldFetchSingleItem = false
 ) => {
   if (shouldFetchSingleItem) {
-    console.log(dataCollection, document, 123);
     const docRef = doc(db, dataCollection, document);
 
     return new Promise((resolve, reject) => {
