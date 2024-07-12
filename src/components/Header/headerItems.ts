@@ -36,11 +36,13 @@ export const headerActions = [
     source: "/search.svg",
     href: "/search",
     isPicture: true,
+    name: "search"
   },
   {
     source: "/login.svg",
     href: "#",
     isPicture: true,
+    name: "login"
   },
 ];
 

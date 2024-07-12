@@ -16,7 +16,7 @@ export default function HeaderElements({
         {data.map((item, index) => (
           <li className="inline-block group" key={index}>
             {item.isPicture && item.source ? (
-              <Link href={item.href || "#"}>
+              <Link href={item.href || "#"} cy-item={item.name}>
                 <Image
                   src={item.source}
                   alt="alt"
@@ -34,9 +34,9 @@ export default function HeaderElements({
                   href={item.href}
                   className={`${
                     item.isLogo
-                      ? `${capriola.className} text-2xl p-0 font-bold`
-                      : ""
-                  } hover:text-black text-black p-3 font-medium`}
+                    ? `${capriola.className} text-2xl p-0 font-bold`
+                    : ""
+                    } hover:text-black text-black p-3 font-medium`}
                 >
                   {item.name}
                 </Link>
