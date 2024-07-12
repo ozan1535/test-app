@@ -7,7 +7,7 @@ import { IFormItems } from "@/app/types";
 
 export default function Card({ test }: { test: IFormItems }) {
   return (
-    <Link href={`/test/${generateFolderName(test.title)}`} className="group ">
+    <Link href={`/test/${generateFolderName(test.title)}`} className="group" cy-item="card">
       <div className="group relative bg-white flex w-full h-72 lg:h-40 rounded flex-col lg:flex-row">
         <div className="flex justify-center items-center overflow-hidden w-full lg:w-1/2 h-full ">
           <Image
