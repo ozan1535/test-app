@@ -16,10 +16,10 @@ export default function TestQuestions({
           <Image
             src={question.questionMediaUrl}
             alt="Question media"
-            width="0"
-            height="0"
-            sizes="100vw"
-            className="w-full h-auto pb-2"
+            width="600"
+            height="400"
+            sizes="(max-width: 640px) 100vw, 50vw"
+            className="w-full h-auto pb-2 object-cover"
             priority={false}
           />
           <TestQuestionOptions
