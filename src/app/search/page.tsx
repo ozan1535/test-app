@@ -28,7 +28,9 @@ export default function Page() {
           ))}
         </div>
       ) : (
-        "There is nothing to show here now."
+        <p className="px-2">
+          There is nothing to show here now.
+        </p>
       )}
     </>
   );

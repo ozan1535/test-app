@@ -6,7 +6,7 @@ export default function Search({
   handleFunction,
 }: ISearchComponent) {
   return (
-    <form className="w-full mx-auto">
+    <form className="w-full mx-auto px-2">
       <div className="relative">
         <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
           <Image src="/search.svg" width={20} height={20} alt="Search icon" />
