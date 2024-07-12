@@ -480,6 +480,6 @@ export const handleSearchFunction = (
   e.preventDefault();
   const items =
     data &&
-    data.filter((item) => item.title.toLowerCase().includes(searchValue));
+    data.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()));
   setItems(items);
 };
