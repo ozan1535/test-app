@@ -1,10 +1,11 @@
 import { Dispatch, SetStateAction } from "react";
 
 export const copyLink = (
+  websiteUrl: string,
   pathname: string,
   setIsCopied: Dispatch<SetStateAction<boolean>>
 ) => {
-  navigator.clipboard.writeText(`URL${pathname}`); // Dynamically get the current URL
+  navigator.clipboard.writeText(`${websiteUrl}${pathname}`); // Dynamically get the current URL
   setIsCopied(true);
 
   setTimeout(() => {
