@@ -222,7 +222,7 @@ export const generateFolderName = (blogTitle: string) => {
   return blogTitle
     .trim()
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-");
+    .replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
 };
 
 export const uploadFile = async (file: File, folderName: string) => {
@@ -239,6 +239,7 @@ export const handleRequest = async (
   setModalProps: Dispatch<SetStateAction<IModalProps>>,
   requestFailedMessage: ReactNode
 ) => {
+  console.log("saaa")
   try {
     const response = await fetch(url, {
       method: method.toUpperCase(),
