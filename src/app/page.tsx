@@ -1,6 +1,6 @@
 import Card from "@/components/Card/Card";
 import Widget from "@/components/Widget/Widget";
-import { getData } from "@/helpers/helpers";
+import { generateFolderName, getData } from "@/helpers/helpers";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -23,8 +23,8 @@ export default async function Home() {
     <>
       <Widget media="/test-emoji.svg" title="Tests" />
       <div className="w-full px-2 grid grid-cols-1 md:grid-cols-2	gap-3">
-        {tests.map((test, index) => (
-          <Card test={test} key={test.key + index} />
+        {tests.map((test) => (
+          <Card test={test} key={generateFolderName(test.title)} />
         ))}
       </div>
     </>
