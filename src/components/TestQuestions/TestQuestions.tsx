@@ -10,7 +10,7 @@ export default function TestQuestions({
     <>
       {questions.map((question, index) => (
         <div className="py-2" key={index}>
-          <h4 className="text-xl font-bold">
+          <h4 className="text-xl font-bold pb-4">
             {index + 1}. {question.questionTitle}
           </h4>
           <Image

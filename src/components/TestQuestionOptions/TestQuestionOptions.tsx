@@ -9,7 +9,7 @@ export default function TestQuestionOptions({
 }: ITestQuestionOptions) {
   return (
     <ul
-      className="space-y-1 text-sm text-gray-700"
+      className="space-y-1 text-sm text-gray-700 pb-4"
       aria-labelledby="dropdownHelperRadioButton"
     >
       {options.map((option, index) => (
