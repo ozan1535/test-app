@@ -15,6 +15,7 @@ export default function Comments({
         <div
           className="w-full mx-auto border px-6 py-4 my-1 rounded-lg"
           key={index}
+          cy-item={`testComment${index}`}
         >
           <div className="flex items-center mb-6">
             <Image
@@ -31,7 +32,7 @@ export default function Comments({
               <div className="text-gray-500 text-xs">
                 {new Date(
                   comment.createdAt?.seconds * 1000 +
-                    comment.createdAt?.nanoseconds / 1000000
+                  comment.createdAt?.nanoseconds / 1000000
                 ).toLocaleString("en-US", {
                   hour12: false,
                   year: "numeric",

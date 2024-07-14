@@ -35,6 +35,7 @@ export default function TestComment({ title, mutate }: ITestComment) {
           rows={3}
           className="w-full resize-none p-4"
           value={comment}
+          cy-item="testCommentTextArea"
           placeholder="Share your comment here! &#128578;"
           onClick={() =>
             handleLoginModalShow(session, setModalProps, <Login />)

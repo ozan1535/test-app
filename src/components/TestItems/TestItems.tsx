@@ -86,6 +86,7 @@ export default function TestItems({
       <br />
       <div
         className="cursor-pointer"
+        cy-item="favourite"
         onClick={() =>
           handleFavouriteRequest(
             session,
@@ -101,9 +102,8 @@ export default function TestItems({
         }
       >
         <span
-          className={`${
-            isTestFavourite ? "bg-green-400" : "bg-slate-200"
-          } p-2 rounded`}
+          className={`${isTestFavourite ? "bg-green-400" : "bg-slate-200"
+            } p-2 rounded`}
         >
           Add Favourite
         </span>

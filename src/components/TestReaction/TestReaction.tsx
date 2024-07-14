@@ -33,9 +33,9 @@ export default function TestReaction({
             width={50}
             height={50}
             alt={emoji.name}
-            className={`p-1 ${
-              currentUserEmoji === emoji.name ? "bg-green-400" : "bg-slate-200"
-            } rounded-full cursor-pointer`}
+            className={`p-1 ${currentUserEmoji === emoji.name ? "bg-green-400" : "bg-slate-200"
+              } rounded-full cursor-pointer`}
+            cy-item={emoji.name}
             onClick={() =>
               handleReactionRequest(
                 session,
