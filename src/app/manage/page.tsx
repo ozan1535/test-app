@@ -31,7 +31,7 @@ export default function Manage() {
 
   if (!passwordProperties.isPasswordTrue) {
     return (<>
-      <Input name="Password" type="text" value={passwordProperties.password} handleFunction={(e) => setPasswordProperties(prev => ({ ...prev, password: e.target.value }))} />
+      <Input name="Password" type="password" value={passwordProperties.password} handleFunction={(e) => setPasswordProperties(prev => ({ ...prev, password: e.target.value }))} />
       <Button type="button" isButtonSecondary={false} name="Enter" handleFunction={() => {
         if (passwordProperties.password === process.env.NEXT_PUBLIC_MANAGE_PAGE_PASSWORD) {
           setPasswordProperties(prev => ({
