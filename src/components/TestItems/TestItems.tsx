@@ -72,17 +72,18 @@ export default function TestItems({
           />
         </div>
       )}
-      <br />
-      <Widget
-        media="/surprised-face.svg"
-        title="REACT THIS TEST WITH AN EMOJI!"
-      />
-      <TestReaction
-        title={title}
-        emojiReactions={emojiReactions}
-        currentEmojiReactions={currentEmojis}
-        currentEmojisMutate={currentEmojisMutate}
-      />
+      <div className="-mx-4">
+        <Widget
+          media="/surprised-face.svg"
+          title="REACT THIS TEST WITH AN EMOJI!"
+        />
+        <TestReaction
+          title={title}
+          emojiReactions={emojiReactions}
+          currentEmojiReactions={currentEmojis}
+          currentEmojisMutate={currentEmojisMutate}
+        />
+      </div>
       <br />
       <div
         className="cursor-pointer"
