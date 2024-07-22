@@ -1,8 +1,7 @@
 import { useAppContext } from "@/app/context";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect } from "react";
 
 export const useModal = () => {
-  //const [isOpen, setIsOpen] = useState(false);
   const { modalProps, setModalProps } = useAppContext();
   const { isOpen } = modalProps;
   const closeModal = useCallback(() => {

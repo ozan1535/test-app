@@ -87,15 +87,6 @@ export const getEmojiReactionItems = (
   }));
 };
 
-/* export const countEmojisForEach = (emojiReactions: ITestReactionItem[]) => {
-  if (!emojiReactions) return {};
-
-  return emojiReactions.reduce((counts, { emoji }) => {
-    counts[emoji] = (counts[emoji] || 0) + 1;
-    return counts;
-  }, {});
-}; */
-
 export const countEmojisForEach = (emojiReactions: ITestReactionItem[]) => {
   if (!emojiReactions) return {};
 

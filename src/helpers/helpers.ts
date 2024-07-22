@@ -4,11 +4,13 @@
 // When items are being uploadad to database, I should see spinning
 
 import {
+  IEmojiProperty,
   IFormItems,
   IHandleFieldChange,
   IQuestion,
   IResult,
   ITabIndexStore,
+  ITestProperty,
 } from "@/app/types";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import {
@@ -105,22 +107,6 @@ export const handleFieldChange: IHandleFieldChange<IQuestion | IResult> = (
     }));
   }
 };
-
-/* export const handleOptionsChange = (
-  e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-  questionIndex: number,
-  optionsIndex: number,
-  formItems: IFormItems,
-  setFormItems: Dispatch<SetStateAction<IFormItems>>
-) => {
-  const { name, value } = e.target;
-  const newQuestions = [...formItems.questions];
-  newQuestions[questionIndex].options[optionsIndex][name] = value;
-  setFormItems((prev) => ({
-    ...prev,
-    questions: newQuestions,
-  }));
-}; */
 
 export const handleOptionsChange = (
   e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -239,7 +225,6 @@ export const handleRequest = async (
   setModalProps: Dispatch<SetStateAction<IModalProps>>,
   requestFailedMessage: ReactNode
 ) => {
-  console.log("saaa")
   try {
     const response = await fetch(url, {
       method: method.toUpperCase(),
@@ -250,7 +235,6 @@ export const handleRequest = async (
     });
 
     if (!response.ok) {
-      console.log("ULaa");
       setTimeout(() => {
         setModalProps((prev) => ({
           ...prev,
@@ -266,20 +250,11 @@ export const handleRequest = async (
   }
 };
 
-interface a1 {
-  title: string;
-  description: string;
-  mainMediaUrl: string;
-}
-interface a2 {
-  emoji: string;
-  slug: string;
-  title: string;
-}
+
 
 export const handleTestPropertyRequest = (
   session: Session | null,
-  data: Record<string, a1 | a2> | null,
+  data: Record<string, ITestProperty | IEmojiProperty> | null,
   method: string,
   handleFunction: () => void,
   url: string,
