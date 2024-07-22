@@ -79,3 +79,15 @@ export interface IFavourite {
   createdAt: ICreatedAt;
   favouriteId?: string;
 }
+
+export interface ITestProperty {
+  title: string;
+  description: string;
+  mainMediaUrl: string;
+}
+
+export interface IEmojiProperty {
+  emoji: string;
+  slug: string;
+  title: string;
+}
