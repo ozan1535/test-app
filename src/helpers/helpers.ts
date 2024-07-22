@@ -225,7 +225,7 @@ export const generateFolderName = (blogTitle: string) => {
     .replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
 };
 
-export const uploadFile = async (file: File, folderName: string) => {
+export const uploadFileAndGetUrl = async (file: File, folderName: string) => {
   const storageRef = ref(storage, `tests/${folderName}/${file.name}`);
   await uploadBytes(storageRef, file);
   return await getDownloadURL(storageRef);
@@ -328,7 +328,7 @@ export const handleSubmit = async (
   try {
     // Upload main media file
     if (formItems.mainMedia) {
-      const mainMediaUrl = await uploadFile(formItems.mainMedia, folderName);
+      const mainMediaUrl = await uploadFileAndGetUrl(formItems.mainMedia, folderName);
       formItems.mainMediaUrl = mainMediaUrl;
     }
 
@@ -336,7 +336,7 @@ export const handleSubmit = async (
     const questionsWithMediaUrls = await Promise.all(
       formItems.questions.map(async (question) => {
         if (question.questionMedia) {
-          question.questionMediaUrl = await uploadFile(
+          question.questionMediaUrl = await uploadFileAndGetUrl(
             question.questionMedia,
             folderName
           );
@@ -350,7 +350,7 @@ export const handleSubmit = async (
     const resultsWithMediaUrls = await Promise.all(
       formItems.results.map(async (result) => {
         if (result.resultMedia) {
-          result.resultMediaUrl = await uploadFile(
+          result.resultMediaUrl = await uploadFileAndGetUrl(
             result.resultMedia,
             folderName
           );
