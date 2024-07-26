@@ -16,10 +16,10 @@ export const getHeaderMenu = (session: Session | null) => {
       name: "TESTS",
       hasDropdown: true,
     },
-    /*  {
-      href: "/2",
-      name: "BLOG",
-    }, */
+    {
+      href: "/astrology",
+      name: "ASTROLOGY",
+    },
   ];
 
   if (session?.user && session?.user.email === "ozanbilgic1535@gmail.com") {
