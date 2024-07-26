@@ -1,3 +1,4 @@
+import { fetcher } from "@/helpers/helpers";
 import useSWR from "swr";
 
 export default function useGetData(
@@ -5,9 +6,6 @@ export default function useGetData(
   singleItemSlug?: string,
   shouldFetchSingleItem?: boolean
 ) {
-  const fetcher = (
-    ...args: [input: RequestInfo, init?: RequestInit | undefined]
-  ) => fetch(...args).then((res) => res.json());
 
   const { data, error, isLoading, mutate } = useSWR(
     `/api/get?collection=${slug}&singleItemSlug=${singleItemSlug}&shouldFetchSingleItem=${shouldFetchSingleItem}`,

@@ -458,3 +458,7 @@ export const handleSearchFunction = (
     data.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()));
   setItems(items);
 };
+
+export const fetcher = (
+  ...args: [input: RequestInfo, init?: RequestInit | undefined]
+) => fetch(...args).then((res) => res.json());
