@@ -6,7 +6,7 @@ import { IAstrologyModal } from "./AstrologyModal.types";
 export default function AstrologyModal({ zodiacSign, timeRange }: IAstrologyModal) {
 
     const { data } = useSWR(
-        `/api/astrologyapi?timerange=${timeRange}&zodiac=${zodiacSign.name.toLocaleLowerCase()}`,
+        `https://horoscope-app-api.vercel.app/api/v1/get-horoscope/${timeRange}?sign=${zodiacSign.name.toLocaleLowerCase()}`,
         fetcher
     );
 
