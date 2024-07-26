@@ -18,3 +18,13 @@ export const handleNext = (counter: number, setCounter: Dispatch<SetStateAction<
         setCounter(prev => prev + 1)
     }
 }
+
+export const selectAndUnselectedCard = (cardIndex: number, selectedCards: number[], setSelectedCards: Dispatch<SetStateAction<number[]>>) => {
+    if (selectedCards.some(selectedCard => selectedCard === cardIndex)) {
+        setSelectedCards(prev => prev.filter(item => item !== cardIndex))
+    } else {
+        if (selectedCards.length < 5) {
+            setSelectedCards(prev => [...prev, cardIndex])
+        }
+    }
+}
