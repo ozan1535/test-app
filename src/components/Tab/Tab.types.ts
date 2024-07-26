@@ -1,6 +1,5 @@
 import { IOption, IQuestion, IResult, ITabIndexStore } from "@/app/types";
 import { Dispatch, SetStateAction } from "react";
-import { IProfileItemsIndex } from "../ProfileItems/ProfileItems.types";
 
 export interface ITab {
   items: (IQuestion | IResult | IOption | string)[];

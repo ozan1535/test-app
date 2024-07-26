@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface ITarotResult {
+export interface ISetCanShowTarotResult {
     setCanShowTarotResult: Dispatch<SetStateAction<boolean>>
 }
