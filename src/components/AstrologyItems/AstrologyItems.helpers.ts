@@ -1,6 +1,6 @@
 import { ITarotCard, IZodiacSign } from "./AstrologyItems.types";
 
-export const astrologyTabItems = ["HOROSCOPES", "ZODIAC SIGN CHARACTERISTICS", "TAROT"]
+export const astrologyTabItems = [/* "HOROSCOPES", */ "ZODIAC SIGN CHARACTERISTICS", "TAROT"]
 
 
 export const zodiacSigns: IZodiacSign[] = [

@@ -49,9 +49,8 @@ export default function AstrologyItems() {
         {
 
             tabItemsTabIndex.tabItemsIndex === 0 ?
-                <ZodiacPictures canShowTimeRange={true} onClick={openAstrologyModal} /> :
-                tabItemsTabIndex.tabItemsIndex === 1 ? <ZodiacPictures canShowTimeRange={false} onClick={openZodiacCharactericticModal} /> :
-                    tabItemsTabIndex.tabItemsIndex === 2 ? <Tarot /> : null
+                <ZodiacPictures canShowTimeRange={false} onClick={openZodiacCharactericticModal} /> :
+                tabItemsTabIndex.tabItemsIndex === 1 ? <Tarot /> : null
 
         }
     </>
@@ -59,3 +58,16 @@ export default function AstrologyItems() {
 
 
 }
+
+/* 
+
+ {
+
+            tabItemsTabIndex.tabItemsIndex === 0 ?
+                <ZodiacPictures canShowTimeRange={true} onClick={openAstrologyModal} /> :
+                tabItemsTabIndex.tabItemsIndex === 1 ? <ZodiacPictures canShowTimeRange={false} onClick={openZodiacCharactericticModal} /> :
+                    tabItemsTabIndex.tabItemsIndex === 2 ? <Tarot /> : null
+
+        }
+
+*/
