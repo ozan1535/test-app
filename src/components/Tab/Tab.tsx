@@ -15,7 +15,7 @@ export default function Tab({
           key={index}
           className={`me-2 inline-block p-4 ${
             index === currentIndex
-              ? "text-blue-600 bg-gray-100"
+              ? "text-blue-600 bg-gray-100 border-b-2 border-blue-500"
               : "hover:text-gray-600 hover:bg-gray-200"
           } rounded-t-lg cursor-pointer`}
           onClick={() => handleFunction(index, itemName, setTabIndexStore)}
