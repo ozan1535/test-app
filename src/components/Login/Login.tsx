@@ -2,7 +2,7 @@ import { signIn } from "next-auth/react";
 
 export default function Login() {
   return (
-    <div className="h-44">
+    <div className="h-44 w-96">
       <h1 className="text-center text-xl font-medium">Login</h1>
       <div className="flex items-center justify-center h-32">
         <button

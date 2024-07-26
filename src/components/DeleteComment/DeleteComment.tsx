@@ -9,7 +9,7 @@ export default function DeleteComment({
   comment,
 }: DeleteComment) {
   return (
-    <div className="px-5 pb-5">
+    <div className="px-5 pb-5 w-96">
       <p className="mb-2">
         Are you sure you want to delete <b>{comment.comment}</b>?
       </p>

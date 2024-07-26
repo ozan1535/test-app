@@ -2,7 +2,7 @@ import { IModalContent } from "./Modal.types";
 
 export default function ModalContent({ closeModal, component }: IModalContent) {
   return (
-    <div className="relative p-4 w-96 max-h-full">
+    <div className="relative p-4 min:w-96 max-h-full">
       <div className="relative bg-white rounded-lg shadow">
         <div className="flex flex-col items-center justify-between p-2">
           <button

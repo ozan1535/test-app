@@ -6,7 +6,7 @@ import { ILogout } from "./Logout.types";
 export default function Logout({ setModalProps }: ILogout) {
   const { data: session } = useSession();
   return (
-    <div className="h-44 flex flex-col justify-center items-center">
+    <div className="h-44 w-96 flex flex-col justify-center items-center">
       <Link
         href="/profile"
         className="text-blue-500 flex flex-col items-center "

@@ -18,7 +18,7 @@ export default function UpdateComment({
   const canUpdateComment = updateComment === comment || updateComment === "";
 
   return (
-    <div className="p-4">
+    <div className="p-4 w-96">
       <Input
         name="updateComment"
         type="text"
