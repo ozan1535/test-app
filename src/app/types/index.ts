@@ -35,6 +35,7 @@ export interface ITabIndexStore {
   resultTabIndex?: number;
   generalTabIndex?: number;
   profileItemsIndex?: number;
+  tabItemsIndex?: number
 }
 
 export type IHandleFieldChange<T> = (
