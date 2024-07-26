@@ -10,7 +10,7 @@ export default function AstrologyModal({ zodiacSign, timeRange }: IAstrologyModa
         fetcher
     );
 
-    if (!data) {
+    if (!data?.data) {
         return null
     }
 
@@ -18,7 +18,7 @@ export default function AstrologyModal({ zodiacSign, timeRange }: IAstrologyModa
         <Image height={150} width={150} alt={zodiacSign.name} src={zodiacSign.mediaLink} />
         <br />
         <b>{zodiacSign.name}</b>
-        <p>{data.data.horoscope_data}</p>
+        <p>{data.data?.horoscope_data}</p>
         <br />
         {
             data.data?.challenging_days && <p className="self-start">Challenging days: {data.data.challenging_days}</p>
