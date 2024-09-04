@@ -2,14 +2,18 @@ import { Metadata } from "next";
 import { useFetchData } from "@/hooks/useFetchData";
 import { IParams } from "@/app/types";
 import Image from "next/image";
+import { generateFolderName, getData } from "@/helpers/helpers";
 
 export async function generateMetadata({ params }: IParams): Promise<Metadata> {
-  const { singleBlog } = await useFetchData(params.slug);
+  const blogs = await getData("blogs");
+  const singleBlog = blogs.find(
+    (blog) => generateFolderName(blog.title) === params.slug
+  );
 
   return {
     title: `Testarot - ${singleBlog.title}`,
     description: singleBlog.excerpt,
-    keywords: ["testarot", singleBlog.title, "blog"],
+    keywords: ["testarot", "blog"],
   };
 }
 
