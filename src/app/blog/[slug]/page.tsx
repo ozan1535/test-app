@@ -21,7 +21,7 @@ export default async function Page({ params }: IParams) {
   const { singleBlog } = await useFetchData(params.slug);
 
   return (
-    <div>
+    <div className="p-4">
       <div className="font-bold text-2xl text-center">{singleBlog.title}</div>
       <br />
       <div className="flex justify-center">
@@ -31,10 +31,11 @@ export default async function Page({ params }: IParams) {
           width="400"
           height="200"
           sizes="(max-width: 640px) 100vw, 50vw"
-          className="w-2/5 h-2/4 pb-2 object-cover"
+          className="md:w-2/4 md:h-2/4 w-full h-auto object-cover"
           priority={false}
         />
       </div>
+      <br />
       <div dangerouslySetInnerHTML={{ __html: singleBlog.content }}></div>
     </div>
   );
