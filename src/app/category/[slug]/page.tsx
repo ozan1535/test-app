@@ -22,7 +22,14 @@ export default async function Page({ params }: IParams) {
   return (
     <div className="w-full px-2 grid grid-cols-1 md:grid-cols-2	gap-3">
       {filteredTests.map((test, index) => (
-        <Card test={test} key={test.category + index} />
+        <Card
+          type="test"
+          title={test.title}
+          mediaUrl={test.mainMediaUrl}
+          excerpt={test.description}
+          category={test.category}
+          key={test.category + index}
+        />
       ))}
     </div>
   );

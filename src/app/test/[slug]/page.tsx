@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import TestItems from "@/components/TestItems/TestItems";
 import { serverAuth } from "../../../../auth";
-import { useFetchTestData } from "@/hooks/useFetchTestData";
+import { useFetchData } from "@/hooks/useFetchData";
 import { IParams } from "@/app/types";
 import { generateFolderName, getData } from "@/helpers/helpers";
 
@@ -27,7 +27,7 @@ export default async function Page({ params }: IParams) {
   const session = await serverAuth();
 
   const { singleTest, commentsValues, emojiReactions, isCurrentTestFavourite } =
-    await useFetchTestData(params.slug, session?.user?.email);
+    await useFetchData(params.slug, session?.user?.email);
 
   return (
     <div className="w-full grid justify-center px-4 justify-items-center gap-1">

@@ -24,7 +24,14 @@ export default async function Home() {
       <Widget media="/test-emoji.svg" title="Tests" />
       <div className="w-full px-2 grid grid-cols-1 md:grid-cols-2	gap-3">
         {tests.map((test) => (
-          <Card test={test} key={generateFolderName(test.title)} />
+          <Card
+            type="test"
+            title={test.title}
+            mediaUrl={test.mainMediaUrl}
+            excerpt={test.description}
+            category={test.category}
+            key={generateFolderName(test.title)}
+          />
         ))}
       </div>
     </>

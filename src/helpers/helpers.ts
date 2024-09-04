@@ -202,17 +202,23 @@ export const addNewTab = (
 };
 
 export const generalTabs = ["Properties", "Questions", "Results"];
+export const addItemTabs = ["Add Test", "Add Blog"];
 
 export const generateFolderName = (blogTitle: string) => {
   // Replace spaces with hyphens and remove special characters for a clean folder name
   return blogTitle
     .trim()
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-").replace(/-+$/, "");
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+$/, "");
 };
 
-export const uploadFileAndGetUrl = async (file: File, folderName: string) => {
-  const storageRef = ref(storage, `tests/${folderName}/${file.name}`);
+export const uploadFileAndGetUrl = async (
+  type: string,
+  file: File,
+  folderName: string
+) => {
+  const storageRef = ref(storage, `${type}/${folderName}/${file.name}`);
   await uploadBytes(storageRef, file);
   return await getDownloadURL(storageRef);
 };
@@ -244,13 +250,17 @@ export const handleRequest = async (
       }, 100);
     }
   } catch (error) {
-    console.error("Error submitting form:", error);
+    setTimeout(() => {
+      setModalProps((prev) => ({
+        ...prev,
+        isOpen: true,
+        component: requestFailedMessage,
+      }));
+    }, 100);
   } finally {
     handleFunction();
   }
 };
-
-
 
 export const handleTestPropertyRequest = (
   session: Session | null,
@@ -303,7 +313,11 @@ export const handleSubmit = async (
   try {
     // Upload main media file
     if (formItems.mainMedia) {
-      const mainMediaUrl = await uploadFileAndGetUrl(formItems.mainMedia, folderName);
+      const mainMediaUrl = await uploadFileAndGetUrl(
+        "tests",
+        formItems.mainMedia,
+        folderName
+      );
       formItems.mainMediaUrl = mainMediaUrl;
     }
 
@@ -312,6 +326,7 @@ export const handleSubmit = async (
       formItems.questions.map(async (question) => {
         if (question.questionMedia) {
           question.questionMediaUrl = await uploadFileAndGetUrl(
+            "tests",
             question.questionMedia,
             folderName
           );
@@ -326,6 +341,7 @@ export const handleSubmit = async (
       formItems.results.map(async (result) => {
         if (result.resultMedia) {
           result.resultMediaUrl = await uploadFileAndGetUrl(
+            "tests",
             result.resultMedia,
             folderName
           );
@@ -422,6 +438,7 @@ export const tabIndexStoreInitialProperties = {
   questionOptionTabIndex: 0,
   resultTabIndex: 0,
   generalTabIndex: 0,
+  addItemTabIndex: 0,
 };
 
 export const isValueInData = (data: any[], itemName: string, name: string) => {
@@ -455,7 +472,9 @@ export const handleSearchFunction = (
   e.preventDefault();
   const items =
     data &&
-    data.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()));
+    data.filter((item) =>
+      item.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
   setItems(items);
 };
 

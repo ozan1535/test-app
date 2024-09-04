@@ -5,6 +5,7 @@ import ManageProperties from "@/components/ManageProperties/ManageProperties";
 import ManageQuestions from "@/components/ManageQuestions/ManageQuestions";
 import ManageResults from "@/components/ManageResults/ManageResults";
 import {
+  addItemTabs,
   formItemsInitialProperties,
   generalTabs,
   handleSubmit,
@@ -16,6 +17,8 @@ import { IFormItems, ITabIndexStore } from "../types";
 import { useAppContext } from "../context";
 import RequestFailedMessage from "@/components/RequestFailedMessage/RequestFailedMessage";
 import Input from "@/components/Input/Input";
+import AddTest from "@/components/AddTest/AddTest";
+import AddBlog from "@/components/AddBlog/AddBlog";
 
 export default function Manage() {
   const { setModalProps } = useAppContext();
@@ -23,73 +26,69 @@ export default function Manage() {
     formItemsInitialProperties
   );
 
-  const [passwordProperties, setPasswordProperties] = useState({ password: "", isPasswordTrue: false })
+  const [passwordProperties, setPasswordProperties] = useState({
+    password: "",
+    isPasswordTrue: false,
+  });
 
   const [tabIndexStore, setTabIndexStore] = useState<ITabIndexStore>(
     tabIndexStoreInitialProperties
   );
-
+  /* 
   if (!passwordProperties.isPasswordTrue) {
-    return (<>
-      <Input name="Password" type="password" value={passwordProperties.password} handleFunction={(e) => setPasswordProperties(prev => ({ ...prev, password: e.target.value }))} />
-      <Button type="button" isButtonSecondary={false} name="Enter" handleFunction={() => {
-        if (passwordProperties.password === process.env.NEXT_PUBLIC_MANAGE_PAGE_PASSWORD) {
-          setPasswordProperties(prev => ({
-            ...prev,
-            isPasswordTrue: true
-          }))
-        }
-      }} />
-    </>)
-  }
-
+    return (
+      <>
+        <Input
+          name="Password"
+          type="password"
+          value={passwordProperties.password}
+          handleFunction={(e) =>
+            setPasswordProperties((prev) => ({
+              ...prev,
+              password: e.target.value,
+            }))
+          }
+        />
+        <Button
+          type="button"
+          isButtonSecondary={false}
+          name="Enter"
+          handleFunction={() => {
+            if (
+              passwordProperties.password ===
+              process.env.NEXT_PUBLIC_MANAGE_PAGE_PASSWORD
+            ) {
+              setPasswordProperties((prev) => ({
+                ...prev,
+                isPasswordTrue: true,
+              }));
+            }
+          }}
+        />
+      </>
+    );
+  } */
 
   return (
-
-    <form className="px-2">
+    <>
       <Tab
-        items={generalTabs}
+        items={addItemTabs}
         handleFunction={updateTabIndex}
-        currentIndex={tabIndexStore.generalTabIndex || 0}
-        itemName="generalTabIndex"
+        currentIndex={tabIndexStore.addItemTabIndex || 0}
+        itemName="addItemTabIndex"
         setTabIndexStore={setTabIndexStore}
       />
-      {tabIndexStore.generalTabIndex === 0 ? (
-        <ManageProperties formItems={formItems} setFormItems={setFormItems} />
-      ) : tabIndexStore.generalTabIndex === 1 ? (
-        <ManageQuestions
+      {tabIndexStore.addItemTabIndex === 0 ? (
+        <AddTest
+          tabIndexStore={tabIndexStore}
+          setTabIndexStore={setTabIndexStore}
           formItems={formItems}
           setFormItems={setFormItems}
-          setTabIndexStore={setTabIndexStore}
-          questionTabIndex={tabIndexStore.questionTabIndex || 0}
-          questionOptionTabIndex={tabIndexStore.questionOptionTabIndex || 0}
+          setModalProps={setModalProps}
         />
       ) : (
-        <ManageResults
-          results={formItems.results}
-          resultTabIndex={tabIndexStore.resultTabIndex || 0}
-          formItems={formItems}
-          setFormItems={setFormItems}
-          setTabIndexStore={setTabIndexStore}
-        />
+        <AddBlog setTabIndexStore={setTabIndexStore} />
       )}
-      <br />
-      <br />
-      <Button
-        type="button"
-        isButtonSecondary={false}
-        name="Submit"
-        handleFunction={(e) =>
-          handleSubmit(
-            e,
-            formItems,
-            setFormItems,
-            setTabIndexStore,
-            setModalProps,
-            <RequestFailedMessage />
-          )
-        }
-      />
-    </form>
+    </>
   );
 }

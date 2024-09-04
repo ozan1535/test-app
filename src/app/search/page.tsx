@@ -24,13 +24,18 @@ export default function Page() {
       {items.length ? (
         <div className="w-full px-2 grid grid-cols-1 md:grid-cols-2	gap-3">
           {items.map((item, index) => (
-            <Card test={item} key={item.category + index} />
+            <Card
+              type="test"
+              title={item.title}
+              mediaUrl={item.mainMediaUrl}
+              excerpt={item.description}
+              category={item.category}
+              key={item.category + index}
+            />
           ))}
         </div>
       ) : (
-        <p className="px-2">
-          There is nothing to show here now.
-        </p>
+        <p className="px-2">There is nothing to show here now.</p>
       )}
     </>
   );

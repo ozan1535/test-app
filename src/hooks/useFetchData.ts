@@ -1,13 +1,17 @@
 import { generateFolderName, getData, isValueInData } from "@/helpers/helpers";
 
-export const useFetchTestData = async (
+export const useFetchData = async (
   slug: string,
-  userEmail: string | null | undefined
+  userEmail?: string | null | undefined
 ) => {
-  const tests = (await getData("tests")) as any;
-  const singleTest = tests.find(
-    (test) => generateFolderName(test.title) === slug
-  );
+  const getSingleData = async (type) => {
+    const items = (await getData(type)) as any;
+    return items.find((item) => generateFolderName(item.title) === slug);
+  };
+
+  const singleTest = await getSingleData("tests");
+  const singleBlog = await getSingleData("blogs");
+
   const comments = (await getData("comments", slug, true)) as any;
   const commentsValues =
     comments &&
@@ -21,5 +25,11 @@ export const useFetchTestData = async (
     : [];
   const isCurrentTestFavourite = isValueInData(favourites, "title", slug);
 
-  return { singleTest, commentsValues, emojiReactions, isCurrentTestFavourite };
+  return {
+    singleTest,
+    commentsValues,
+    emojiReactions,
+    isCurrentTestFavourite,
+    singleBlog,
+  };
 };

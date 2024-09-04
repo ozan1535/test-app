@@ -20,6 +20,10 @@ export const getHeaderMenu = (session: Session | null) => {
       href: "/astrology",
       name: "ASTROLOGY",
     },
+    {
+      href: "/blog",
+      name: "BLOG",
+    },
   ];
 
   if (session?.user && session?.user.email === "ozanbilgic1535@gmail.com") {
@@ -36,13 +40,13 @@ export const headerActions = [
     source: "/search.svg",
     href: "/search",
     isPicture: true,
-    name: "search"
+    name: "search",
   },
   {
     source: "/login.svg",
     href: "#",
     isPicture: true,
-    name: "login"
+    name: "login",
   },
 ];
 
