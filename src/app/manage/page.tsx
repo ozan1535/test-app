@@ -1,21 +1,15 @@
 "use client";
 import { useState } from "react";
 import Button from "@/components/Button/Button";
-import ManageProperties from "@/components/ManageProperties/ManageProperties";
-import ManageQuestions from "@/components/ManageQuestions/ManageQuestions";
-import ManageResults from "@/components/ManageResults/ManageResults";
 import {
   addItemTabs,
   formItemsInitialProperties,
-  generalTabs,
-  handleSubmit,
   tabIndexStoreInitialProperties,
   updateTabIndex,
 } from "@/helpers/helpers";
 import Tab from "@/components/Tab/Tab";
 import { IFormItems, ITabIndexStore } from "../types";
 import { useAppContext } from "../context";
-import RequestFailedMessage from "@/components/RequestFailedMessage/RequestFailedMessage";
 import Input from "@/components/Input/Input";
 import AddTest from "@/components/AddTest/AddTest";
 import AddBlog from "@/components/AddBlog/AddBlog";
@@ -34,7 +28,7 @@ export default function Manage() {
   const [tabIndexStore, setTabIndexStore] = useState<ITabIndexStore>(
     tabIndexStoreInitialProperties
   );
-  /* 
+
   if (!passwordProperties.isPasswordTrue) {
     return (
       <>
@@ -67,7 +61,7 @@ export default function Manage() {
         />
       </>
     );
-  } */
+  }
 
   return (
     <>
