@@ -21,7 +21,7 @@ export default function Manage() {
   );
 
   const [passwordProperties, setPasswordProperties] = useState({
-    password: "sample",
+    password: "",
     isPasswordTrue: false,
   });
 
